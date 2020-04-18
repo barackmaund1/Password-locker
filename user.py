@@ -1,4 +1,5 @@
 import string ,random
+import pyperclip
 class User:
     """
     Class that generates new instance of users.
@@ -78,4 +79,26 @@ class Credential:
         """
         return cls.credential_list
 
-    
+    @classmethod
+    def search_credential(cls, user_name):
+        """
+        Method that takes in a username_name and returns a credential that matches that account_name.
+        """
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                return credential
+    @classmethod
+    def if_credential_exist(cls, user_name):
+        """
+        Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
+        """
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                return True
+        return False
+    def generates_password(self):
+        password=""
+        for n in range(0,9): 
+            x=random.randit(0,94)
+            password +=string.printable[x]
+        return password    

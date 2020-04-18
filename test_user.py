@@ -92,7 +92,7 @@ class TestCredentials(unittest.TestCase):
         """
         to test if credentials can be displayed using method
         """
-        self.assertEqual(Credential.display_credential(),Credential.credential_list)    
+        self.assertEqual(Credential.display_credential(),Credential.credential_list)     
 
 
 if __name__ ==  '__main__':
