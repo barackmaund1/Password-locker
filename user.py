@@ -5,11 +5,12 @@ class User:
     """
     user_list=[]#Empty user lis
 
-    def __init__(self,account_name,user_name,password):
+    def __init__(self,first_name,last_name,user_name,password):
 
         #docstring removed for simplicity
 
-            self.account_name=account_name
+            self.first_name=first_name
+            self.last_name=last_name
             self.user_name=user_name
             self.password=password
     def save_account(self):
@@ -35,16 +36,16 @@ class User:
     
 class Credential:
     credential_list=[]
-    def __init__(self,account,user_name,password):
+    def __init__(self,user_name,password):
 
         #docstring removed for simplicity
-
-            self.account=account
             self.user_name=user_name
             self.password=password
-    @classmethod 
-    def save_user_list(cls,account):
-        """
-        save the user list in the credentials from the user class
-        """
-        return cls.credential_list.append(account)
+    @classmethod
+    def credential_exist(cls,):
+
+        for  in cls.user_list:
+            if credential.user_name == account.user_list:
+                return credential.user_name
+
+            return False
