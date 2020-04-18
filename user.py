@@ -41,11 +41,35 @@ class Credential:
         #docstring removed for simplicity
             self.user_name=user_name
             self.password=password
+  
     @classmethod
-    def credential_exist(cls,):
+    def account_exist(cls,user_name,password):
+        '''
+        Method that checks if a account exists from the contact list.
+        Args:
+            string:user_name  to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for account in User.user_list:
+            if (account.user_name == user_name password.user_name==password):
+                    return True
 
-        for  in cls.user_list:
-            if credential.user_name == account.user_list:
-                return credential.user_name
+        return False         
+    def save_credentials(self):
 
-            return False
+        '''
+        save_credentials method saves account objects into credetial_list
+        '''
+
+        Credential.credential_list.append(self)
+           
+    def delete_crediantials(cls):
+
+        '''
+        delete_credential method deletes a saved accouts from the credi
+        '''
+
+        Credential.credential_list.remove(self)
+             
+        
