@@ -40,7 +40,7 @@ def save_credential(credential):
     credential.save_credential() 
 def display_credential():
     """
-    Function to display all credentials in list
+    Function to display all credentials in the list
     """
     return Crediantial.display_credential()    
 
@@ -94,9 +94,52 @@ def main():
         print('\n') 
         print(f"Hello {first_name} {last_name}, Your account has been succesfully created!Your password is:\n {password}")
         print('\n')
+       
+    elif short_code=='li':
+        print('\n')
+        print("Please enter your details to log in")
+        print('\n')
+
+        print('user name...')
+        user_name=input('user_name')
+
+        print('Enter your password')
+        password=input('password')
+
+        login=account_exist(user_name,password)
+        if account_exist ==login:
+            print(f"Hello{user_choice}.Welcome to your credentials")
+            print("\n")
+    while True:
+        print("Use these short codes:\n CC-Create a new credential \n DC-Display credential \n SC-search a credential\n GP-Generate a random password \n D-Delete credential \n E-Exit")        
     else:
-        print('Invalid input.Please enter valid input')   
-        
+        print('Invalid input.Please enter valid input')     
+        short_code=input().lower().strip()
+        if short_code == "cc":
+            print("Create New credential")
+            print("."*30)
+            print("Account name e.g twitter,whatsapp,facebook")
+            account_name=input().lower()
+            print('Your account username')
+            user_name=input()
+            while True:
+                print('Type:TP-To type your own password if already have an account:\nGP-To generate your own password')
+                password_choice=input().lower().strip()
+                if password_choice=='tp':
+                    password=input("Enter Your Own password\n")
+                    break
+                elif password_choice=='gp':
+                    password=generate_password()
+                    break
+                else:
+                    print('invalid password please try again') 
+                save_credential(create_credential(account_name,user_name,password))
+                print("\n")  
+                print(f"{account_name} -username is:{user_name} and password is:{password}")
+                print("\n") 
+        elif short_code =='dc':
+            if                 
+                   
 
 if __name__ == '__main__':
     main()         
