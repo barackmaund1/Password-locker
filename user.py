@@ -56,7 +56,7 @@ class Credential:
                     return True
 
         return False         
-    def save_credentials(self):
+    def save_credential(self):
 
         '''
         save_credentials method saves account objects into credetial_list
@@ -64,7 +64,7 @@ class Credential:
 
         Credential.credential_list.append(self)
 
-    def delete_crediantials(cls):
+    def delete_credential(self):
 
         '''
         delete_credential method deletes a saved accounts from the credintials
@@ -76,6 +76,6 @@ class Credential:
         """
         display_credentials  methods displays crediantials from the credintials
         """
-    return cls.credential_list
+        return cls.credential_list
 
     
