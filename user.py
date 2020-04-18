@@ -45,14 +45,14 @@ class Credential:
     @classmethod
     def account_exist(cls,user_name,password):
         '''
-        Method that checks if a account exists from the contact list.
+        Method that checks if a account exists from the account list.
         Args:
             string:user_name  to search if it exists
         Returns :
-            Boolean: True or false depending if the contact exists
+            Boolean: True or false depending if the account exists
         '''
         for account in User.user_list:
-            if (account.user_name == user_name password.user_name==password):
+            if (account.user_name == user_name and password.user_name == password):
                     return True
 
         return False         
@@ -63,13 +63,19 @@ class Credential:
         '''
 
         Credential.credential_list.append(self)
-           
+
     def delete_crediantials(cls):
 
         '''
-        delete_credential method deletes a saved accouts from the credi
+        delete_credential method deletes a saved accounts from the credintials
         '''
 
         Credential.credential_list.remove(self)
-             
-        
+    @classmethod        
+    def display_crediantials(cls):
+        """
+        display_credentials  methods displays crediantials from the credintials
+        """
+    return cls.credential_list
+
+    

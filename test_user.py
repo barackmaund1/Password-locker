@@ -7,14 +7,15 @@ class TestUser(unittest.TestCase):
         """
         set up method to run before each test cases
         """
-        self.new_account= User("twitter","barack","387r7b7a")
+        self.new_account= User("barack","maundu","barackmaundu","387r7b7a")
 
     def test_init(self):
         """
         test_init test case to test if the object is initialize properly
         """
-        self.assertEqual(self.new_account.account_name,"twitter")
-        self.assertEqual(self.new_account.user_name,"barack")
+        self.assertEqual(self.new_account.first_name,"barack")
+        self.assertEqual(self.new_account.last_name,"maundu")
+        self.assertEqual(self.new_account.user_name,"barackmaundu")
         self.assertEqual(self.new_account.password,"387r7b7a")
 
     def test_save_account(self):
