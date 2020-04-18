@@ -138,8 +138,27 @@ def main():
                 print(f"{account_name} -username is:{user_name} and password is:{password}")
                 print("\n") 
         elif short_code =='dc':
-            if                 
-                   
+            if  display_credential():
+                print('list of you accounts')
+                print('\n')   
+                for crediantial in display_credential():
+                    print{f'Account:{credential.account_name}Username:{credential.user_name}password:{password}'}
+                    print('\n') 
+            else:
+                print("You don't have any credential saved..") 
+        elif short_code=='sc' :
+            print("Enter the account name i.e twitter,instagram to search credential")          
+            account_name=input().lower()
+            if search_credential(account_name):
+                credential=search_credential(account_name)
+                print(f"Account name:{credential.account_name}")
+                print(f"Username:{credential.user_name}")
+                print(f"password:{credential.password}")
+            else:
+                print("invalid account or credential doesn't exist")
+                print('\n')
+        elif short_code=='d' :
+            print("Enter the account name of credential you want to deletete")
 
 if __name__ == '__main__':
     main()         
