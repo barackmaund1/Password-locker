@@ -97,6 +97,7 @@ class Credential:
             if credential.account_name == account_name:
                 return True
         return False
+  
     def generates_password(self):
         password=""
         for n in range(self): 

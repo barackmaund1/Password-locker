@@ -58,10 +58,12 @@ def if_credential_exist(account_name):
     """
     Function that search credential with account name and if finds it returns true otherwise false
     """
-def generate_password():
-    """
-    Function that generates a random password wit range
-    """
+# def generate_password():
+#     """
+#     Function that generates a random password wit range
+#     """
+#     password=Credential.generates_password()
+#     return password
    
 def main():
     print("Hello Welocome to your Credentials...\n Kindly if you have no account sign in by typing\n SI--\n Otherwise login by typing \n LI----")
@@ -86,8 +88,8 @@ def main():
                 password=input('Enter your password')
                 break
             elif user_choice=='gp':
-                password=generate_password()
-                break
+               password=generate_password()
+               break
             else:
                 print('Invalid password please try again') 
         save_account(create_account('first_name','last_name','user_name','password'))
@@ -111,9 +113,7 @@ def main():
             print(f"Hello{user_choice}.Welcome to your credentials")
             print("\n")
     while True:
-        print("Use these short codes:\n CC-Create a new credential \n DC-Display credential \n SC-search a credential\n GP-Generate a random password \n D-Delete credential \n E-Exit")        
-    else:
-        print('Invalid input.Please enter valid input')     
+        print("Use these short codes:\n CC-Create a new credential \n DC-Display credential \n SC-search a credential\n GP-Generate a random password \n D-Delete credential \n E-Exit")            
         short_code=input().lower().strip()
         if short_code == "cc":
             print("Create New credential")
@@ -128,9 +128,9 @@ def main():
                 if password_choice=='tp':
                     password=input("Enter Your Own password\n")
                     break
-                elif password_choice=='gp':
-                    password=generate_password()
-                    break
+                # elif password_choice=='gp':
+                #     password=generate_password()
+                #     break
                 else:
                     print('invalid password please try again') 
                 save_credential(create_credential(account_name,user_name,password))
@@ -142,7 +142,7 @@ def main():
                 print('list of you accounts')
                 print('\n')   
                 for crediantial in display_credential():
-                    print{f'Account:{credential.account_name}Username:{credential.user_name}password:{password}'}
+                    print(f'Account:{credential.account_name}Username:{credential.user_name}password:{credential.password}')
                     print('\n') 
             else:
                 print("You don't have any credential saved..") 
@@ -158,7 +158,27 @@ def main():
                 print("invalid account or credential doesn't exist")
                 print('\n')
         elif short_code=='d' :
-            print("Enter the account name of credential you want to deletete")
+            print("Enter the account name of credential you want to delete")
+            account_name=input().lower()
+            if search_credential(account_name):
+                credential=search_credential(account_name)
+                credential.delete_credential()
+                print(f'{credential.account_name} has been deleted succefully')
+            else:
+                print('please you do not have that credential')
+        elif short_code=='e' :
+            print("Thank you.See you next time")
+        elif short_code=='gp':
+            password=generate_password()
+            print(f'{password}Your password has been generated successfully')
+        else :
+            print('Oops!wrong entry try again')
+    else:
+        print("Invalid input")
+              
+
+                     
+
 
 if __name__ == '__main__':
     main()         
