@@ -1,14 +1,14 @@
 #!/usr/bin/env python3.6
-from user import User,Crediantial
+from user import User,Credential
 
 def create_account(first_name,last_name,user_name,password):
     """
     function to create new account or to sign up
     """
-    new_account=User(first_name,last_name,user_name,password)
+    new_account=User("first_name","last_name","user_name","password")
     return new_account
 
-def save_account(acount): 
+def save_account(account): 
     """
     Function to save new account 
     """
@@ -63,3 +63,40 @@ def generate_password():
     Function that generates a random password wit range
     """
    
+def main():
+    print("Hello Welocome to your Credentials...\n Kindly if you have no account sign in by typing\n SI--\n Otherwise login by typing \n LI----")
+    short_code=input("").lower().strip()
+    if short_code=="si":
+        print('sign in')
+        print('*40')
+
+        print('first name....')
+        first_name=input()
+
+        print('last name....')
+        last_name=input()
+
+        print('Enter username...')
+        user_name=input()
+
+        while True:
+            print('Type:OP-To type your password:\n  GP -To generate random password')
+            user_choice=input().lower().strip()
+            if user_choice =='op':
+                password=input('Enter your password')
+                break
+            elif user_choice=='gp':
+                password=generate_password()
+                break
+            else:
+                print('Invalid password please try again') 
+        save_account(create_account('first_name','last_name','user_name','password'))
+        print('\n') 
+        print(f"Hello {first_name} {last_name}, Your account has been succesfully created!Your password is:\n {password}")
+        print('\n')
+    else:
+        print('Invalid input.Please enter valid input')   
+        
+
+if __name__ == '__main__':
+    main()         

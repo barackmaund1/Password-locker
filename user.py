@@ -74,7 +74,7 @@ class Credential:
 
         Credential.credential_list.remove(self)
     @classmethod        
-    def display_crediantials(cls):
+    def display_credentials(cls):
         """
         display_credentials  methods displays crediantials from the credintials
         """
@@ -99,7 +99,7 @@ class Credential:
         return False
     def generates_password(self):
         password=""
-        for n in range(0,9): 
+        for n in range(self): 
             x=random.randit(0,94)
             password +=string.printable[x]
         return password    
