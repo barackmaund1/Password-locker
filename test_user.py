@@ -50,7 +50,7 @@ class TestCredentials(unittest.TestCase):
         """
         set up method to run before each test cases
         """
-        self.new_credential=Credential("barackmaundu","387r7b7a")   
+        self.new_credential=Credential('facebook'"barackmaundu","387r7b7a")   
     def test_account_exist(self):
         """
         account_exist checks if account new_credintial exist
@@ -68,7 +68,7 @@ class TestCredentials(unittest.TestCase):
         To test how to save multiple
         """
         self.new_credential.save_credential()
-        test_credential=Credential("barackmaundu",'387r7b7a')
+        test_credential=Credential('twitter'"barackmaundu",'387r7b7a')
         test_credential.save_credential()  
 
         self.assertEqual(len(Credential.credential_list),2)
@@ -78,7 +78,7 @@ class TestCredentials(unittest.TestCase):
         To test if credentail can be deleted
         """
         self.new_credential.save_credential()
-        test_credential=Credential("barackjunior",'387r3b7a')
+        test_credential=Credential('twitter'"barackjunior",'387r3b7a')
         test_credential.save_credential()  
 
         self.new_credential.delete_credential()

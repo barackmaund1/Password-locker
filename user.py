@@ -21,7 +21,7 @@ class User:
         """
         User.user_list.append(self)
 
-    def del_account(self):
+    def delete_account(self):
         """
         del_account method deletes a saved accounts
         """
@@ -37,11 +37,12 @@ class User:
     
 class Credential:
     credential_list=[]
-    def __init__(self,user_name,password):
+    def __init__(self,account_name,user_name,password):
 
         #docstring removed for simplicity
             self.user_name=user_name
             self.password=password
+            self.account_name=account_name
   
     @classmethod
     def account_exist(cls,user_name,password):
@@ -53,7 +54,7 @@ class Credential:
             Boolean: True or false depending if the account exists
         '''
         for account in User.user_list:
-            if (account.user_name == user_name and password.user_name == password):
+            if (account.user_name == user_name and account.password == password):
                     return True
 
         return False         
@@ -80,20 +81,20 @@ class Credential:
         return cls.credential_list
 
     @classmethod
-    def search_credential(cls, user_name):
+    def search_credential(cls, account_name):
         """
-        Method that takes in a username_name and returns a credential that matches that account_name.
+        Method that takes in a account_name and returns a credential that matches that account_name.
         """
         for credential in cls.credentials_list:
-            if credential.user_name == user_name:
+            if credential.account_name == account_name:
                 return credential
     @classmethod
-    def if_credential_exist(cls, user_name):
+    def if_credential_exist(cls, account_name):
         """
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
         for credential in cls.credentials_list:
-            if credential.user_name == user_name:
+            if credential.account_name == account_name:
                 return True
         return False
     def generates_password(self):
