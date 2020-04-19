@@ -275,7 +275,7 @@ def main():
                 
                     print('Oops!wrong entry try again') 
         else:
-            print('please enter valid username')            
+            print('please sign up first')            
         
     
     else:
