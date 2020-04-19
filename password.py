@@ -18,21 +18,23 @@ def display_account():
     function to display existing account
     """
     return User.display_account()
-def delete_account():
+def delete_account(account):
     """
     function to delete the account and reset again
     """
-    return User.delete.account()
+    return account.delete.account()
 def account_exist(user_name,password):
     """
     Function to check whether the account username and password exist
     """
-    check_account=Crediantial.account_exist(user_name,password)
+    return Credential.account_exist(user_name,password)
 def create_credential(account_name,user_name,password):
     """
     Function to create new credential
     """
-    new_credential=Crediantial(user_name,password)  
+    new_credential=Credential('account_name',"user_name","password")  
+    return new_credential
+
 def save_credential(credential):
     """
     Function to save new credential
@@ -42,7 +44,7 @@ def display_credential():
     """
     Function to display all credentials in the list
     """
-    return Crediantial.display_credential()    
+    return Credential.display_credentials()    
 
 def delete_credential(credential):
     """
@@ -53,17 +55,17 @@ def search_credential(account_name):
     """
     Function to search credential and returns it from credentia_list
     """
-    return Crediantial.search_credential(account_name) 
+    return Credential.search_credential(account_name) 
 def if_credential_exist(account_name):
     """
     Function that search credential with account name and if finds it returns true otherwise false
     """
-# def generate_password():
-#     """
-#     Function that generates a random password wit range
-#     """
-#     password=Credential.generates_password()
-#     return password
+def generate_password():
+    """
+    Function that generates a random password wit range
+    """    
+    password=Credential.generates_password()
+    return password
    
 def main():
     print("Hello Welocome to your Credentials...\n Kindly if you have no account sign in by typing\n SI--\n Otherwise login by typing \n LI----")
@@ -128,12 +130,12 @@ def main():
                 if password_choice=='tp':
                     password=input("Enter Your Own password\n")
                     break
-                # elif password_choice=='gp':
-                #     password=generate_password()
-                #     break
+                elif password_choice=='gp':
+                    password=generate_password()
+                    break
                 else:
                     print('invalid password please try again') 
-                save_credential(create_credential(account_name,user_name,password))
+                save_credential(create_credential("account_name","user_name","password"))
                 print("\n")  
                 print(f"{account_name} -username is:{user_name} and password is:{password}")
                 print("\n") 
@@ -141,7 +143,7 @@ def main():
             if  display_credential():
                 print('list of you accounts')
                 print('\n')   
-                for crediantial in display_credential():
+                for credential in display_credential():
                     print(f'Account:{credential.account_name}Username:{credential.user_name}password:{credential.password}')
                     print('\n') 
             else:

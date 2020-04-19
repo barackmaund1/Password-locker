@@ -1,4 +1,5 @@
-import string ,random
+import string 
+import random
 import pyperclip
 class User:
     """
@@ -40,10 +41,11 @@ class Credential:
     def __init__(self,account_name,user_name,password):
 
         #docstring removed for simplicity
+            self.account_name=account_name
             self.user_name=user_name
             self.password=password
-            self.account_name=account_name
-  
+            
+
     @classmethod
     def account_exist(cls,user_name,password):
         '''
@@ -85,7 +87,7 @@ class Credential:
         """
         Method that takes in a account_name and returns a credential that matches that account_name.
         """
-        for credential in cls.credentials_list:
+        for credential in cls.credential_list:
             if credential.account_name == account_name:
                 return credential
     @classmethod
@@ -93,14 +95,18 @@ class Credential:
         """
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
-        for credential in cls.credentials_list:
+        for credential in cls.credential_list:
             if credential.account_name == account_name:
                 return True
         return False
-  
-    def generates_password(self):
+    @classmethod 
+    # def generates_password(stringLength=8):
+    #     """Generate a random password string of letters and digits and special characters"""
+    #     password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+    #     return ''.join(random.choice(password) for i in range(stringLength)) 
+    def generates_password( stringLength=8):
         password=""
-        for n in range(self): 
+        for n in range(stringLength): 
             x=random.randit(0,94)
             password +=string.printable[x]
         return password    
