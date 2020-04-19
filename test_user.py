@@ -45,18 +45,18 @@ class TestUser(unittest.TestCase):
         test_account.save_account()
         self.assertEqual(len(User.user_list),2)    
 
-class TestCredentials(unittest.TestCase): 
+class TestCredential(unittest.TestCase): 
     def setUp(self):
         """
         set up method to run before each test cases
         """
-        self.new_credential=Credential('facebook'"barackmaundu","387r7b7a")   
+        self.new_credential=Credential('facebook',"barackmaundu","387r7b7a")   
     def test_account_exist(self):
         """
         account_exist checks if account new_credintial exist
         """
         self.assertEqual(self.new_credential.user_name,"barackmaundu")
-        self.assertEqual(self.new_credential.password,'387r7b7a')   
+       
     def test_save_credential(self):
         """
         To save new_credential_accont in the credential list
@@ -68,7 +68,7 @@ class TestCredentials(unittest.TestCase):
         To test how to save multiple
         """
         self.new_credential.save_credential()
-        test_credential=Credential('twitter'"barackmaundu",'387r7b7a')
+        test_credential=Credential('twitter',"barackmaundu",'387r7b7a')
         test_credential.save_credential()  
 
         self.assertEqual(len(Credential.credential_list),2)
@@ -78,7 +78,7 @@ class TestCredentials(unittest.TestCase):
         To test if credentail can be deleted
         """
         self.new_credential.save_credential()
-        test_credential=Credential('twitter'"barackjunior",'387r3b7a')
+        test_credential=Credential('twitter',"barackjunior",'387r3b7a')
         test_credential.save_credential()  
 
         self.new_credential.delete_credential()
@@ -92,7 +92,7 @@ class TestCredentials(unittest.TestCase):
         """
         to test if credentials can be displayed using method
         """
-        self.assertEqual(Credential.display_credential(),Credential.credential_list)     
+        self.assertEqual(Credential.display_credentials(),Credential.credential_list)     
 
 
 if __name__ ==  '__main__':

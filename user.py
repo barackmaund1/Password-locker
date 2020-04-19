@@ -34,8 +34,14 @@ class User:
         display_account method diplays account from the account_list
         """
         return cls.user_list 
-
+    @classmethod    
+    def generates_password(cls,stringLength=8):
+        """Generate a random password string of letters and digits and special characters"""
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength)) 
     
+
+
 class Credential:
     credential_list=[]
     def __init__(self,account_name,user_name,password):
@@ -47,7 +53,7 @@ class Credential:
             
 
     @classmethod
-    def account_exist(cls,user_name,password):
+    def account_exist(cls,user_name):
         '''
         Method that checks if a account exists from the account list.
         Args:
@@ -56,7 +62,7 @@ class Credential:
             Boolean: True or false depending if the account exists
         '''
         for account in User.user_list:
-            if (account.user_name == user_name and account.password == password):
+            if account.user_name == user_name :
                     return True
 
         return False         
@@ -99,14 +105,16 @@ class Credential:
             if credential.account_name == account_name:
                 return True
         return False
-    @classmethod 
-    # def generates_password(stringLength=8):
-    #     """Generate a random password string of letters and digits and special characters"""
-    #     password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
-    #     return ''.join(random.choice(password) for i in range(stringLength)) 
-    def generates_password( stringLength=8):
-        password=""
-        for n in range(stringLength): 
-            x=random.randit(0,94)
-            password +=string.printable[x]
-        return password    
+    # @classmethod
+    # def generates_password(cls, stringLength=8):
+    #     password=""
+    #     for n in range(stringLength): 
+    #         x=random.randit(0,94)
+    #         password +=string.printable[x]
+    #     return password
+     
+    @classmethod    
+    def generate_password(cls,stringLength=8):
+        """Generate a random password string of letters and digits and special characters"""
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength)) 
