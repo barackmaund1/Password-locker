@@ -185,9 +185,7 @@ def main():
                                 print('please you do not have that credential')
                         elif short_code=='e' :
                             print("Thank you.See you next time")
-                        elif short_code=='gp':
-                            password=generate_password()
-                            print(f'{password}Your password has been generated successfully')
+                        
                         else :
                 
                             print('Oops!wrong entry try again') 
@@ -272,9 +270,7 @@ def main():
                         print('please you do not have that credential')
                 elif short_code=='e' :
                     print("Thank you.See you next time")
-                elif short_code=='gp':
-                    password=generate_password()
-                    print(f'{password}Your password has been generated successfully')
+                
                 else :
                 
                     print('Oops!wrong entry try again') 
