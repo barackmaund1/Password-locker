@@ -62,7 +62,7 @@ class Credential:
             Boolean: True or false depending if the account exists
         '''
         for account in User.user_list:
-            if account.user_name == user_name :
+            if account.user_name == user_name:
                     return True
 
         return False         
